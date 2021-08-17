@@ -72,7 +72,9 @@ const App: () => Node = () => {
           }}>
 
           <Text style={{color:"red", fontSize:30}}>Mi primera App, la voy a crear !! !!!</Text>
-
+          <Text style={{color:"red", fontSize:30}}>Mi primera App, la voy a crear !! !!!</Text>
+          <Text style={{color:"red", fontSize:30}}>Mi primera App, la voy a crear !! !!!</Text>
+          <Text style={{color:"red", fontSize:30}}>Mi primera App, la voy a crear !! !!!</Text>
 
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
