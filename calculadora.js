@@ -36,19 +36,19 @@ export default class calculadora extends Component {
         </View>
 
         <View style={styles.btn6}>
-            <Button title="6" />
+          <Button title="6" />
         </View>
 
         <View style={styles.btnmulti}>
-            <Button title="*" />
+          <Button title="*" />
         </View>
 
         <View style={styles.btn1}>
-            <Button title="1" />
+          <Button title="1" />
         </View>
 
         <View style={styles.btn2}>
-            <Button title="2" />
+          <Button title="2" />
         </View>
 
         <View style={styles.btn3}>
@@ -56,22 +56,33 @@ export default class calculadora extends Component {
         </View>
 
         <View style={styles.btnresta}>
-            <Button title="-" />
+          <Button title="-" />
         </View>
 
         <View style={styles.btn0}>
-            <Button title="0" />
+          <Button title="0" />
         </View>
 
         <View style={styles.btnsuma}>
-            <Button title="+" />
+          <Button title="+" />
         </View>
 
         <View style={styles.btnigual}>
-            <Button title="=" />
+          <Button title="=" />
         </View>
 
-    </View>
+        <View style={styles.btndel}>
+          <Button title="del" />
+        </View>
+
+        <View style={styles.btnc}>
+          <Button title="C" />
+        </View>
+
+        <View style={styles.btnpunto}>
+          <Button title="." />
+        </View>
+      </View>
     );
   }
 }
@@ -158,7 +169,7 @@ const styles = StyleSheet.create({
   },
   btn0: {
     height: 50,
-    width: 200,
+    width: 130,
     marginLeft: 30,
     marginTop: 0,
   },
@@ -174,5 +185,23 @@ const styles = StyleSheet.create({
     marginLeft: 310,
     marginTop: -50,
   },
+  btndel: {
+    height: 50,
+    width: 60,
+    marginLeft: 310,
+    marginTop: -200,
+  },
+  btnc: {
+    height: 50,
+    width: 60,
+    marginLeft: 310,
+    marginTop: 0,
+  },
 
+  btnpunto: {
+    height: 50,
+    width: 60,
+    marginLeft: 170,
+    marginTop: 50,
+  },
 });
