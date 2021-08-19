@@ -6,19 +6,53 @@ export default class calculadora extends Component {
     super(props);
     this.state = {
       //Declaracion de variables
+      resultado:'100',
+      temp:'',
+      bandera:'0',
     };
   }
 
   render() {
     // Es donde va la programacion, accion de botos y funciones
+    const clickbtn7 = () => {
+      this.setState({resultado:this.state.resultado+7})
+    };
+    const clickbtn8 = () => {
+      this.setState({resultado:this.state.resultado+8})
+    };
+    const clickbtnsuma = () => {
+      this.setState({temp: this.state.resultado});
+      this.setState({resultado:''});
+      this.setState({bandera:'1'});
+    };
+    const clickbtnigual = () => {
+      if(this.state.bandera == '1'){
+        var res = parseInt(this.state.temp) + parseInt(this.state.resultado)
+        this.setState({resultado: res})       
+      }
+      if(this.state.bandera == '2'){
+        var res = parseInt(this.state.temp) - parseInt(this.state.resultado)
+        this.setState({resultado: res})  
+      }
+
+    };
+
+  
+
     return (
       <View>
         <Text style={styles.titulo}> Calculadora </Text>
+        <Text>Hola mundo</Text>
+
+      <View style={{borderWidth: 3, heignt:50, width:150, marginLeft:100, marginTop:10}}>
+        <Text style={{fontSize:20, textAlign: 'center'}}>{this.state.resultado}</Text>
+      </View>
+
         <View style={styles.btn7}>
-          <Button title="7" />
+          <Button title="7" onPress={clickbtn7}/>
         </View>
         <View style={styles.btn8}>
-          <Button title="8" />
+          <Button title="8" onPress={clickbtn8}/>
         </View>
         <View style={styles.btn9}>
           <Button title="9" />
@@ -64,11 +98,11 @@ export default class calculadora extends Component {
         </View>
 
         <View style={styles.btnsuma}>
-          <Button title="+" />
+          <Button title="+" onPress={clickbtnsuma}/>
         </View>
 
         <View style={styles.btnigual}>
-          <Button title="=" />
+          <Button title="=" onPress={clickbtnigual}/>
         </View>
 
         <View style={styles.btndel}>
