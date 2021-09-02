@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Button} from 'react-native';
+import {Text, View, StyleSheet, Button, TextInput} from 'react-native';
 
 export default class calculadora extends Component {
   constructor(props) {
@@ -9,6 +9,9 @@ export default class calculadora extends Component {
       resultado:'',
       temp:'',
       bandera:'0',
+      numerando1: '',
+      numerando2: '',
+      res:'0',
     };
   }
 
@@ -26,9 +29,19 @@ export default class calculadora extends Component {
     };
 
     const clickbtndiv = () => {
+
+      console.log(this.state.numerando1, this.state.numerando2);
+      var restemp =
+        parseInt(this.state.numerando1) / parseInt(this.state.numerando2);
+      console.log(restemp);
+      this.setState({resultado: 'El resultado es: ' + restemp});
+
+      {/*
       this.setState({temp:this.state.resultado})
       this.setState({resultado:''})
       this.setState({bandera:'4'})
+      */}
+
     };
 
     const clickbtn4 = () => {
@@ -44,9 +57,19 @@ export default class calculadora extends Component {
     };
 
     const clickbtnmuti = () => {
+
+      console.log(this.state.numerando1, this.state.numerando2);
+      var restemp =
+        parseInt(this.state.numerando1) * parseInt(this.state.numerando2);
+      console.log(restemp);
+      this.setState({resultado: 'El resultado es: ' + restemp});
+
+      {/*
       this.setState({temp:this.state.resultado})
       this.setState({resultado:''})
       this.setState({bandera:'3'})
+      */}
+
     };
 
     const clickbtn1 = () => {
@@ -62,9 +85,19 @@ export default class calculadora extends Component {
     };
 
     const clickbtnresta = () => {
+
+      console.log(this.state.numerando1, this.state.numerando2);
+      var restemp =
+        parseInt(this.state.numerando1) - parseInt(this.state.numerando2);
+      console.log(restemp);
+      this.setState({resultado: 'El resultado es: ' + restemp});
+
+      {/*
       this.setState({temp:this.state.resultado})
       this.setState({resultado:''})
       this.setState({bandera:'2'})
+      */}
+      
     };
 
     const clickbtn0 = () => {
@@ -84,9 +117,19 @@ export default class calculadora extends Component {
 
 
     const clickbtnsuma = () => {
+
+      console.log(this.state.numerando1, this.state.numerando2);
+      var restemp =
+        parseInt(this.state.numerando1) + parseInt(this.state.numerando2);
+      console.log(restemp);
+      this.setState({resultado: 'El resultado es: ' + restemp});
+
+      {/*
       this.setState({temp: this.state.resultado});
       this.setState({resultado:''});
       this.setState({bandera:'1'});
+      */}
+
     };
 
     const clickbtnc = () => {
@@ -117,12 +160,22 @@ export default class calculadora extends Component {
   
 
     return (
-      <View>
+      <View style={{backgroundColor:"#bdc3c7"}}>
         <Text style={styles.titulo}> Calculadora </Text>
 
-      <View style={{borderWidth: 3, height:50, width:200, marginLeft:100, marginTop:10}}>
-        <Text style={{fontSize:30, textAlign: 'center', fontWeight: 'bold', marginTop:0}}>{this.state.resultado}</Text>
+      <View style={{borderWidth: 3, height:50, width:300, marginLeft:50, marginTop:10}}>
+        <Text style={{fontSize:20, textAlign: 'center', fontWeight: 'bold', marginTop:0}}>{this.state.resultado}</Text>
       </View>
+
+      <View style={{height:460, backgroundColor: "#706fd3"}}>
+
+      <TextInput placeholder="0" keyboardType="number-pad"
+        onChangeText={(numerando1) => this.setState({numerando1})}
+        value={this.state.numerando1}/>
+
+        <TextInput placeholder="0" keyboardType="number-pad"
+        onChangeText={(numerando2) => this.setState({numerando2})}
+        value={this.state.numerando2}/>
 
         <View style={styles.btn7}>
           <Button title="7" onPress={clickbtn7}/>
@@ -192,6 +245,10 @@ export default class calculadora extends Component {
         <View style={styles.btnpunto}>
           <Button title="." onPress={clickbtnpunto}/>
         </View>
+
+        </View>
+
+
       </View>
     );
   }
@@ -207,11 +264,17 @@ const styles = StyleSheet.create({
     marginBottom:50,
     fontWeight: 'bold',
   },
+  btnc: {
+    height: 50,
+    width: 60,
+    marginLeft: 310,
+    marginTop: -0,
+  },
   btn7: {
     height: 50,
     width: 60,
     marginLeft: 30,
-    marginTop: 50,
+    marginTop: 150,
   },
   btn8: {
     height: 50,
@@ -303,12 +366,7 @@ const styles = StyleSheet.create({
     marginLeft: 310,
     marginTop: -200,
   },
-  btnc: {
-    height: 50,
-    width: 60,
-    marginLeft: 310,
-    marginTop: 0,
-  },
+
 
   btnpunto: {
     height: 50,
